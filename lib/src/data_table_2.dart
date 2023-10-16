@@ -1017,7 +1017,7 @@ class DataTable2 extends DataTable {
                                             previousValue + value),
                                   ))),
                     Flexible(
-                        fit: FlexFit.tight,
+                        // fit: FlexFit.tight,
                         child: Scrollbar(
                             thumbVisibility: isVerticalScrollBarVisible ??
                                 (isiOS
@@ -1057,6 +1057,7 @@ class DataTable2 extends DataTable {
                     ]);
             }
 
+
             var completeWidget = Container(
                 decoration: decoration ?? theme.dataTableTheme.decoration,
                 child: Material(
@@ -1064,7 +1065,9 @@ class DataTable2 extends DataTable {
                     borderRadius: border?.borderRadius,
                     clipBehavior: clipBehavior,
                     child: rows.isEmpty
-                        ? Column(children: [
+                        ? Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
                             SingleChildScrollView(
                                 controller: coreHorizontalController,
                                 scrollDirection: Axis.horizontal,
@@ -1073,7 +1076,7 @@ class DataTable2 extends DataTable {
                                     border: border,
                                     children: [headingRow])),
                             Flexible(
-                                fit: FlexFit.tight,
+                                // fit: FlexFit.tight,
                                 child: empty ?? const SizedBox())
                           ])
                         : Row(
@@ -1083,7 +1086,7 @@ class DataTable2 extends DataTable {
                                 fixedColumnAndCornerCol,
                               if (fixedRowsAndCoreCol != null)
                                 Flexible(
-                                    fit: FlexFit.tight,
+                                    // fit: FlexFit.tight,
                                     child: fixedRowsAndCoreCol)
                             ],
                           )));
